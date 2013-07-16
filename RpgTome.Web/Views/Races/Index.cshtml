@@ -1,0 +1,33 @@
+﻿@model RpgTome.Web.ViewModels.Races.IndexViewModel
+
+@{
+    ViewBag.Title = "Character Races";
+}
+
+<h2>Character Races</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Size</th>
+        <th>Speed</th>
+        <th>Height</th>
+        <th>Weight</th>
+    </tr>
+
+@foreach (var race in Model.Races) {
+    <tr>
+        <td>@Html.ActionLink(@race.Name, "Details", new { race.Id })</td>
+        <td>@race.Description</td>
+        <td>@race.Size</td>
+        <td>@race.Speed</td>
+        <td>@race.HeightRange</td>
+        <td>@race.WeightRange</td>
+    </tr>
+}
+
+</table>

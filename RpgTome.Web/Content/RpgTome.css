@@ -1,0 +1,59 @@
+﻿dl.feature-block {
+    width: 500px;
+    overflow: hidden;
+}
+
+dl.feature-block dt  {
+    font-weight: bold;
+    float: left;
+    margin-right: 10px;
+}
+
+dl.feature-block dd {
+    float: none;
+}
+
+dl.feature-block ul {
+    list-style: none;
+    display: inline;
+    margin: 0;
+    padding: 0;
+}
+
+dl.feature-block ul li 
+{
+    display: inline;
+}
+
+dl.feature-block ul li:not(:last-child):after {
+    content: ', ';
+}
+
+.character-summary {
+    width: 500px;
+    height: 75px;
+    background-color: #c0c0c0;
+    margin-top: 3px;
+    margin-bottom: 3px;
+    padding: 5px;
+}
+
+.character-summary h3 {
+    margin: 0;
+}
+
+.summary {
+    width: 100%;
+}
+
+.character-hyperlink {
+    float: inherit;
+}
+
+.avatar {
+    width: 75px;
+    height: 75px;
+    background-color: #000080;
+    float: left;
+    margin-right: 5px;
+}

@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{1B7A56DB-92FF-43E8-8357-2F983F4EAA8A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RpgTome</RootNamespace>
+    <AssemblyName>RpgTome</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Autofac">
+      <HintPath>..\packages\Autofac.3.0.2\lib\net40\Autofac.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Configuration">
+      <HintPath>..\packages\Autofac.3.0.2\lib\net40\Autofac.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Autofac.Integration.WebApi">
+      <HintPath>..\packages\Autofac.WebApi.3.0.2\lib\net40\Autofac.Integration.WebApi.dll</HintPath>
+    </Reference>
+    <Reference Include="FluentNHibernate">
+      <HintPath>..\packages\FluentNHibernate.1.3.0.733\lib\FluentNHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="Iesi.Collections">
+      <HintPath>..\packages\Iesi.Collections.3.2.0.4000\lib\Net35\Iesi.Collections.dll</HintPath>
+    </Reference>
+    <Reference Include="NHibernate">
+      <HintPath>..\packages\NHibernate.3.3.3.4000\lib\Net35\NHibernate.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="HashHelper.cs" />
+    <Compile Include="Model\Ability.cs" />
+    <Compile Include="Model\Character.cs" />
+    <Compile Include="Model\CharacterClass.cs" />
+    <Compile Include="Model\Height.cs" />
+    <Compile Include="Model\HeightRange.cs" />
+    <Compile Include="Model\Language.cs" />
+    <Compile Include="Model\Mappings\AbilityMapping.cs" />
+    <Compile Include="Model\Mappings\CharacterClassMapping.cs" />
+    <Compile Include="Model\Mappings\CharacterMapping.cs" />
+    <Compile Include="Model\Mappings\LanguageMapping.cs" />
+    <Compile Include="Model\Mappings\PlayerMapping.cs" />
+    <Compile Include="Model\Mappings\RaceAbilityModifierMapping.cs" />
+    <Compile Include="Model\Mappings\RaceLanguageMapping.cs" />
+    <Compile Include="Model\Mappings\RaceMapping.cs" />
+    <Compile Include="Model\Mappings\RaceSkillBonusMapping.cs" />
+    <Compile Include="Model\Mappings\SizeCategoryMapping.cs" />
+    <Compile Include="Model\Mappings\SkillMapping.cs" />
+    <Compile Include="Model\PersonName.cs" />
+    <Compile Include="Model\Player.cs" />
+    <Compile Include="Model\Race.cs" />
+    <Compile Include="Model\RaceAbilityModifier.cs" />
+    <Compile Include="Model\RaceLanguage.cs" />
+    <Compile Include="Model\RaceSkillBonus.cs" />
+    <Compile Include="Model\Repositories\RepositoriesModule.cs" />
+    <Compile Include="Model\SizeCategory.cs" />
+    <Compile Include="Model\Skill.cs" />
+    <Compile Include="Model\WeightRange.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Providers\Database\SqlDatabaseProvider.cs" />
+    <Compile Include="Providers\InternalProviderRegistrationModule.cs" />
+    <Compile Include="Providers\IProviderInfo.cs" />
+    <Compile Include="Providers\ProviderInfo.cs" />
+    <Compile Include="Repositories\IConnectionStringSettings.cs" />
+    <Compile Include="Providers\Database\IDatabaseProvider.cs" />
+    <Compile Include="Repositories\ICommand.cs" />
+    <Compile Include="Repositories\IPagedQuery.cs" />
+    <Compile Include="Repositories\IQuery.cs" />
+    <Compile Include="Repositories\IRepository.cs" />
+    <Compile Include="Repositories\NHibernateRepository.cs" />
+    <Compile Include="Repositories\PagedResult.cs" />
+    <Compile Include="Repositories\Queries\SimpleFilterQuery.cs" />
+    <Compile Include="Settings\AppHarborSettings.cs" />
+    <Compile Include="Settings\ConnectionStringSettings.cs" />
+    <Compile Include="Settings\IAppHarborSettings.cs" />
+    <Compile Include="Settings\IConfigSettings.cs" />
+    <Compile Include="Settings\SettingsModule.cs" />
+    <Compile Include="Settings\XmlConfigSettings.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,65 @@
+﻿@using System.Text
+@model RpgTome.Web.ViewModels.Races.DetailsViewModel
+
+@{
+    ViewBag.Title = this.Model.Race.Name;
+}
+<h2>@this.Model.Race.Name</h2>
+
+<fieldset>
+    <legend>DetailsViewModel</legend>
+    
+    <dl class="feature-block">
+        <dt>Average Height:</dt>
+        <dd>@Model.Race.HeightRange<br/></dd>
+        
+        <dt>Average Weight:</dt>
+        <dd>@Model.Race.WeightRange<br/></dd>
+        
+        <br/>
+        
+        <dt>Ability Scores:</dt>
+        <dd>
+            <ul>
+                @foreach (var lAbilityModifier in this.Model.AbilityModifiers) {
+                    <li>@Html.Raw(lAbilityModifier.Modifier > 0 ? "+" : "-")@Math.Abs(lAbilityModifier.Modifier) @Html.ActionLink(lAbilityModifier.Ability.Name, "Abilities", new { lAbilityModifier.Ability.Id })</li>
+                }
+            </ul>
+        </dd>
+
+        <dt>Size:</dt>
+        <dd>@Model.Race.Size.Name</dd>
+        
+        <dt>Speed:</dt>
+        <dd>@Model.Race.Speed squares</dd>
+        
+        <dt>Vision:</dt>
+        <dd></dd>
+        
+        <br/>
+        
+        <dt>Languages:</dt>
+        <dd>
+            <ul>
+                @foreach (var lLanguage in this.Model.Languages) {
+                    <li>@Html.ActionLink(lLanguage.Name, "Languages", new { lLanguage.Id })</li>
+                }
+            </ul>
+        </dd>
+        
+        <dt>Skill Bonuses:</dt>
+        <dd>
+            <ul>
+                @foreach (var lSkillBonus in this.Model.SkillBonuses) {
+                    <li>@Html.Raw(lSkillBonus.Bonus > 0 ? "+" : "-")@Math.Abs(lSkillBonus.Bonus) @Html.ActionLink(lSkillBonus.Skill.Name, "Skills", new { lSkillBonus.Skill.Id })</li>
+                }
+            </ul>
+        </dd>
+    </dl>
+    
+
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

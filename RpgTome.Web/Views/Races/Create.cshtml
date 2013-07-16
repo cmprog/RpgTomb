@@ -1,0 +1,38 @@
+﻿@model RpgTome.Web.ViewModels.Races.CreateViewModel
+
+@{
+    ViewBag.Title = "Create New Race";
+}
+
+<h2>Create New Race</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>CreateViewModel</legend>
+        
+        <p>
+            @Html.Label("name_header", "Name")
+            @Html.TextBox("name")
+        </p>
+        
+        <p>
+            @Html.Label("description_header", "Description")
+            @Html.TextBox("description")
+        </p>
+        
+        <p>
+            @Html.Label("size_header", "Size")
+            @Html.DropDownList("size", this.Model.Sizes.Select(x => new SelectListItem { Text = x.Name, Value = x.Id.ToString(), Selected = (x == Model.DefaultSize) }))
+        </p>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

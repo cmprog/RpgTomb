@@ -1,0 +1,26 @@
+﻿@model RpgTome.Web.ViewModels.Characters.IndexViewModel
+
+@{
+    ViewBag.Title = "Characters";
+}
+
+<h2>Characters</h2>
+
+<fieldset>
+    <legend>IndexViewModel</legend>
+    @foreach (var lCharacter in this.Model.Characters)
+    {
+        <div class="character-summary">
+            <div class="avatar"></div>
+            <div class="summary">
+                <h3>@Html.ActionLink(@lCharacter.Name, "Characters", new { @lCharacter.Id }, new { @class = "character-hyperlink" })</h3>
+                <div class="character-shortdetails">Level @lCharacter.Level @lCharacter.Race.Name</div>
+                <div class="character-ownership">@Html.ActionLink(@lCharacter.OwningPlayer.Name.ToString(), "Players", new { @lCharacter.OwningPlayer.Id })</div>
+            </div>
+        </div>
+    }
+
+</fieldset>
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>
